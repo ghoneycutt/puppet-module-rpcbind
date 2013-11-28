@@ -24,11 +24,14 @@ class rpcbind (
         }
       }
     }
+    'Suse': {
+      $default_service_name = 'rpcbind'
+    }
     'RedHat': {
       $default_service_name = 'rpcbind'
     }
     default: {
-      fail("rpcbind supports osfamilies Debian and RedHat. Detected osfamily is <${::osfamily}>")
+      fail("rpcbind supports osfamilies Debian, Suse and RedHat. Detected osfamily is <${::osfamily}>")
     }
   }
 
