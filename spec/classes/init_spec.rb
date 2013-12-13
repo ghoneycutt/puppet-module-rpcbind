@@ -2,15 +2,6 @@ require 'spec_helper'
 
 describe 'rpcbind' do
   describe 'package resource' do
-    context 'with default params on unsupported osfamily' do
-      let(:facts) { { :osfamily => 'Solaris' } }
-
-      it 'should fail' do
-        expect {
-          should include_class('rpcbind')
-        }.to raise_error(Puppet::Error,/rpcbind supports osfamilies Debian, RedHat, and Suse. Detected osfamily is <Solaris>/)
-      end
-    end
 
     context 'with default params on supported osfamily Debian with unsupported lsbdistid' do
       let(:facts) do
@@ -74,6 +65,17 @@ describe 'rpcbind' do
         should contain_package('rpcbind_package').with({
           'ensure' => 'installed',
           'name'   => 'rpcbind',
+        })
+      }
+    end
+
+    context 'with default params on osfamily Solaris' do
+      let(:facts) { { :osfamily => 'Solaris' } }
+
+      it {
+        should contain_package('rpcbind_package').with({
+          'ensure' => 'installed',
+          'name'   => ['SUNWcsu', 'SUNWcsr'],
         })
       }
     end
@@ -193,6 +195,21 @@ describe 'rpcbind' do
         should contain_service('rpcbind_service').with({
           'ensure' => 'running',
           'name'   => 'my_rpcbind',
+          'enable' => true,
+        })
+      }
+    end
+
+    context 'with default params on osfamily Solaris' do
+      let(:facts) do
+        { :osfamily => 'Solaris',
+        }
+      end
+
+      it {
+        should contain_service('rpcbind_service').with({
+          'ensure' => 'running',
+          'name'   => 'rpc/bind',
           'enable' => true,
         })
       }
