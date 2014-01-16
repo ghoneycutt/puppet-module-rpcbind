@@ -26,8 +26,19 @@ describe 'rpcbind' do
       end
     end
 
-    context 'with default params on osfamily Suse' do
-      let(:facts) { { :osfamily => 'Suse' } }
+    context 'with default params on osfamily Suse 10' do
+      let(:facts) { { :osfamily => 'Suse', :lsbmajdistrelease => '10' } }
+
+      it {
+        should contain_package('rpcbind_package').with({
+          'ensure' => 'installed',
+          'name'   => 'portmap',
+        })
+      }
+    end
+
+    context 'with default params on osfamily Suse 11' do
+      let(:facts) { { :osfamily => 'Suse', :lsbmajdistrelease => '11' } }
 
       it {
         should contain_package('rpcbind_package').with({
@@ -36,6 +47,7 @@ describe 'rpcbind' do
         })
       }
     end
+
 
     context 'with default params on osfamily RedHat' do
       let(:facts) { { :osfamily => 'RedHat' } }
@@ -160,13 +172,25 @@ describe 'rpcbind' do
       }
     end
 
-    context 'with default params on Suse' do
-      let(:facts) { { :osfamily => 'Suse' } }
+    context 'with default params on Suse 10' do
+      let(:facts) { { :osfamily => 'Suse', lsbmajdistrelease => '10'} }
 
       it {
         should contain_service('rpcbind_service').with({
           'ensure' => 'running',
-          'name'   => 'rpcbind',
+          'name'   => 'protmap',
+          'enable' => true,
+        })
+      }
+    end
+
+    context 'with default params on Suse 11' do
+      let(:facts) { { :osfamily => 'Suse', lsbmajdistrelease => '11'} }
+
+      it {
+        should contain_service('rpcbind_service').with({
+          'ensure' => 'running',
+          'name'   => 'protmap',
           'enable' => true,
         })
       }
