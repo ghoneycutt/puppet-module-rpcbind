@@ -13,6 +13,7 @@ This module is built for use with Puppet v3 on the following platforms.
 
  * Debian 6
  * EL 6
+ * Suse 10
  * Suse 11
  * Ubuntu 12.04 LTS
 
