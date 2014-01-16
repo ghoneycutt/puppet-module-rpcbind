@@ -26,12 +26,12 @@ class rpcbind (
       }
     }
     'Suse': {
-
-      $default_service_name = 'rpcbind'
       if $::lsbmajdistrelease == '10' {
         $default_package_name = 'portmap'
+        $default_service_name = 'portmap'
       } else {
       $default_package_name = 'rpcbind'
+      $default_service_name = 'rpcbind'
       }
     }
     'RedHat': {
