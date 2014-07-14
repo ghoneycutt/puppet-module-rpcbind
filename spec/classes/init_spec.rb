@@ -36,7 +36,7 @@ describe 'rpcbind' do
       it 'should fail' do
         expect {
           should contain_class('rpcbind')
-        }.to raise_error(Puppet::Error,/^rpcbind on osfamily Suse supports lsbmajdistrelease 10 and 11. Detected lsbmajdistrelease is <9>./)
+        }.to raise_error(Puppet::Error,/^rpcbind on osfamily Suse supports lsbmajdistrelease 10, 11, and 12. Detected lsbmajdistrelease is <9>./)
       end
     end
   end
@@ -62,6 +62,15 @@ describe 'rpcbind' do
       }
     end
 
+    context 'with default params on osfamily Suse 12' do
+      let(:facts) { { :osfamily => 'Suse', :lsbmajdistrelease => '12' } }
+
+      it {
+        should contain_package('rpcbind').with({
+          'ensure' => 'installed',
+        })
+      }
+    end
 
     context 'with default params on osfamily RedHat' do
       let(:facts) { { :osfamily => 'RedHat' } }

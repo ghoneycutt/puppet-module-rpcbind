@@ -36,8 +36,12 @@ class rpcbind (
           $default_package_name = 'rpcbind'
           $default_service_name = 'rpcbind'
         }
+        '12': {
+          $default_package_name = 'rpcbind'
+          $default_service_name = 'rpcbind'
+        }
         default: {
-          fail("rpcbind on osfamily Suse supports lsbmajdistrelease 10 and 11. Detected lsbmajdistrelease is <${::lsbmajdistrelease}>.")
+          fail("rpcbind on osfamily Suse supports lsbmajdistrelease 10, 11, and 12. Detected lsbmajdistrelease is <${::lsbmajdistrelease}>.")
         }
       }
     }
