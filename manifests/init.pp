@@ -27,7 +27,7 @@ class rpcbind (
       }
     }
     'Suse': {
-      case $::lsbmajdistrelease {
+      case $::operatingsystemmajrelease {
         '10': {
           $default_package_name = 'portmap'
           $default_service_name = 'portmap'
@@ -41,7 +41,7 @@ class rpcbind (
           $default_service_name = 'rpcbind'
         }
         default: {
-          fail("rpcbind on osfamily Suse supports lsbmajdistrelease 10, 11, and 12. Detected lsbmajdistrelease is <${::lsbmajdistrelease}>.")
+          fail("rpcbind on osfamily Suse supports operatingsystemmajrelease 10, 11, and 12. Detected operatingsystemmajrelease is <${::operatingsystemmajrelease}>.")
         }
       }
     }
