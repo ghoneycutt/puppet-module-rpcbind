@@ -12,9 +12,9 @@ describe 'rpcbind' do
       end
     end
 
-    context 'on supported osfamily Debian with unsupported lsbdistid' do
+    context 'on supported osfamily Debian with unsupported operatingsystem' do
       let(:facts) do
-        { :lsbdistid => 'Unsupported',
+        { :operatingsystem => 'Unsupported',
           :osfamily => 'Debian',
         }
       end
@@ -22,7 +22,7 @@ describe 'rpcbind' do
       it 'should fail' do
         expect {
           should contain_class('rpcbind')
-        }.to raise_error(Puppet::Error,/^rpcbind on osfamily Debian supports lsbdistid Debian and Ubuntu. Detected lsbdistid is <Unsupported>./)
+        }.to raise_error(Puppet::Error,/^rpcbind on osfamily Debian supports operatingsystem Debian and Ubuntu. Detected operatingsystem is <Unsupported>./)
       end
     end
 
@@ -84,7 +84,7 @@ describe 'rpcbind' do
 
     context 'with default params on Debian' do
       let(:facts) do
-        { :lsbdistid => 'Debian',
+        { :operatingsystem => 'Debian',
           :osfamily => 'Debian',
         }
       end
@@ -98,7 +98,7 @@ describe 'rpcbind' do
 
     context 'with default params on Ubuntu' do
       let(:facts) do
-        { :lsbdistid => 'Ubuntu',
+        { :operatingsystem => 'Ubuntu',
           :osfamily => 'Debian',
         }
       end
@@ -162,7 +162,7 @@ describe 'rpcbind' do
 
     context 'with default params on Debian' do
       let(:facts) do
-        { :lsbdistid => 'Debian',
+        { :operatingsystem => 'Debian',
           :osfamily => 'Debian',
         }
       end
@@ -178,7 +178,7 @@ describe 'rpcbind' do
 
     context 'with default params on Ubuntu' do
       let(:facts) do
-        { :lsbdistid => 'Ubuntu',
+        { :operatingsystem => 'Ubuntu',
           :osfamily => 'Debian',
         }
       end
