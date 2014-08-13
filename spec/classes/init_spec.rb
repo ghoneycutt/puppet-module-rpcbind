@@ -12,9 +12,9 @@ describe 'rpcbind' do
       end
     end
 
-    context 'on supported osfamily Debian with unsupported lsbdistid' do
+    context 'on supported osfamily Debian with unsupported operatingsystem' do
       let(:facts) do
-        { :lsbdistid => 'Unsupported',
+        { :operatingsystem => 'Unsupported',
           :osfamily => 'Debian',
         }
       end
@@ -22,13 +22,13 @@ describe 'rpcbind' do
       it 'should fail' do
         expect {
           should contain_class('rpcbind')
-        }.to raise_error(Puppet::Error,/^rpcbind on osfamily Debian supports lsbdistid Debian and Ubuntu. Detected lsbdistid is <Unsupported>./)
+        }.to raise_error(Puppet::Error,/^rpcbind on osfamily Debian supports operatingsystem Debian and Ubuntu. Detected operatingsystem is <Unsupported>./)
       end
     end
 
-    context 'on supported osfamily Suse with unsupported lsbmajdistrelease' do
+    context 'on supported osfamily Suse with unsupported operatingsystemmajrelease' do
       let(:facts) do
-        { :lsbmajdistrelease => '9',
+        { :operatingsystemmajrelease => '9',
           :osfamily          => 'Suse',
         }
       end
@@ -36,14 +36,14 @@ describe 'rpcbind' do
       it 'should fail' do
         expect {
           should contain_class('rpcbind')
-        }.to raise_error(Puppet::Error,/^rpcbind on osfamily Suse supports lsbmajdistrelease 10, 11, and 12. Detected lsbmajdistrelease is <9>./)
+        }.to raise_error(Puppet::Error,/^rpcbind on osfamily Suse supports operatingsystemmajrelease 10, 11, and 12. Detected operatingsystemmajrelease is <9>./)
       end
     end
   end
 
   describe 'package resource' do
     context 'with default params on osfamily Suse 10' do
-      let(:facts) { { :osfamily => 'Suse', :lsbmajdistrelease => '10' } }
+      let(:facts) { { :osfamily => 'Suse', :operatingsystemmajrelease => '10' } }
 
       it {
         should contain_package('portmap').with({
@@ -53,7 +53,7 @@ describe 'rpcbind' do
     end
 
     context 'with default params on osfamily Suse 11' do
-      let(:facts) { { :osfamily => 'Suse', :lsbmajdistrelease => '11' } }
+      let(:facts) { { :osfamily => 'Suse', :operatingsystemmajrelease => '11' } }
 
       it {
         should contain_package('rpcbind').with({
@@ -63,7 +63,7 @@ describe 'rpcbind' do
     end
 
     context 'with default params on osfamily Suse 12' do
-      let(:facts) { { :osfamily => 'Suse', :lsbmajdistrelease => '12' } }
+      let(:facts) { { :osfamily => 'Suse', :operatingsystemmajrelease => '12' } }
 
       it {
         should contain_package('rpcbind').with({
@@ -84,7 +84,7 @@ describe 'rpcbind' do
 
     context 'with default params on Debian' do
       let(:facts) do
-        { :lsbdistid => 'Debian',
+        { :operatingsystem => 'Debian',
           :osfamily => 'Debian',
         }
       end
@@ -98,7 +98,7 @@ describe 'rpcbind' do
 
     context 'with default params on Ubuntu' do
       let(:facts) do
-        { :lsbdistid => 'Ubuntu',
+        { :operatingsystem => 'Ubuntu',
           :osfamily => 'Debian',
         }
       end
@@ -162,7 +162,7 @@ describe 'rpcbind' do
 
     context 'with default params on Debian' do
       let(:facts) do
-        { :lsbdistid => 'Debian',
+        { :operatingsystem => 'Debian',
           :osfamily => 'Debian',
         }
       end
@@ -178,7 +178,7 @@ describe 'rpcbind' do
 
     context 'with default params on Ubuntu' do
       let(:facts) do
-        { :lsbdistid => 'Ubuntu',
+        { :operatingsystem => 'Ubuntu',
           :osfamily => 'Debian',
         }
       end
@@ -195,7 +195,7 @@ describe 'rpcbind' do
     context 'with default params on Suse 10' do
       let(:facts) do
         { :osfamily          => 'Suse',
-          :lsbmajdistrelease => '10',
+          :operatingsystemmajrelease => '10',
         }
       end
 
@@ -211,7 +211,7 @@ describe 'rpcbind' do
     context 'with default params on Suse 11' do
       let(:facts) do
         { :osfamily          => 'Suse',
-          :lsbmajdistrelease => '11',
+          :operatingsystemmajrelease => '11',
         }
       end
 
@@ -227,7 +227,7 @@ describe 'rpcbind' do
     context 'with default params on Suse 12' do
       let(:facts) do
         { :osfamily          => 'Suse',
-          :lsbmajdistrelease => '12',
+          :operatingsystemmajrelease => '12',
         }
       end
 

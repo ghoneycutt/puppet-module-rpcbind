@@ -14,7 +14,7 @@ class rpcbind (
     'Debian': {
       $default_package_name = 'rpcbind'
 
-      case $::lsbdistid {
+      case $::operatingsystem {
         'Debian': {
           $default_service_name = 'rpcbind'
         }
@@ -22,12 +22,12 @@ class rpcbind (
           $default_service_name = 'rpcbind-boot'
         }
         default: {
-          fail("rpcbind on osfamily Debian supports lsbdistid Debian and Ubuntu. Detected lsbdistid is <${::lsbdistid}>.")
+          fail("rpcbind on osfamily Debian supports operatingsystem Debian and Ubuntu. Detected operatingsystem is <${::operatingsystem}>.")
         }
       }
     }
     'Suse': {
-      case $::lsbmajdistrelease {
+      case $::operatingsystemmajrelease {
         '10': {
           $default_package_name = 'portmap'
           $default_service_name = 'portmap'
@@ -41,7 +41,7 @@ class rpcbind (
           $default_service_name = 'rpcbind'
         }
         default: {
-          fail("rpcbind on osfamily Suse supports lsbmajdistrelease 10, 11, and 12. Detected lsbmajdistrelease is <${::lsbmajdistrelease}>.")
+          fail("rpcbind on osfamily Suse supports operatingsystemmajrelease 10, 11, and 12. Detected operatingsystemmajrelease is <${::operatingsystemmajrelease}>.")
         }
       }
     }
