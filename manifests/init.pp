@@ -19,7 +19,14 @@ class rpcbind (
           $default_service_name = 'rpcbind'
         }
         'Ubuntu': {
-          $default_service_name = 'rpcbind-boot'
+          case $::lsbdistrelease {
+            '12.04': {
+              $default_service_name = 'portmap'
+            }
+            default: {
+              fail("rpcbind is only supported on Ubuntu 12.04. Detected lsbdistrelease is <${::lsbdistrelease}>.")
+            }
+          }
         }
         default: {
           fail("rpcbind on osfamily Debian supports lsbdistid Debian and Ubuntu. Detected lsbdistid is <${::lsbdistid}>.")
