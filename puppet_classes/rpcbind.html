@@ -82,6 +82,12 @@
 <p>Puppet strings documentation available at
 <a href="http://ghoneycutt.github.io/puppet-module-rpcbind/index.html">http://ghoneycutt.github.io/puppet-module-rpcbind/index.html</a></p>
 
+<h4>Requirements</h4>
+
+<p>This module requires
+<a href="https://github.com/puppetlabs/puppetlabs-stdlib">puppetlabs/stdlib</a>. The
+exact version can be found in the module&#39;s metadata in <code>metadata.json</code>.</p>
+
 <h4>Compatibility</h4>
 
 <p>This module is built for use with the latest versions of Puppet v4 and
@@ -101,6 +107,10 @@ v5 with the ruby version packaged in the all-in-one installer. See
 <li>Ubuntu 16.04 LTS</li>
 <li>Ubuntu 18.04 LTS</li>
 </ul>
+
+<h4>Development</h4>
+
+<p>See the <code>CONTRIBUTING.md</code> file.</p>
 
   </div>
 </div>
@@ -214,16 +224,6 @@ v5 with the ruby version packaged in the all-in-one installer. See
         <pre class="lines">
 
 
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
 45
 46
 47
@@ -248,10 +248,20 @@ v5 with the ruby version packaged in the all-in-one installer. See
 66
 67
 68
-69</pre>
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 35</span>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 45</span>
 
 class rpcbind (
   String $package_ensure = &#39;installed&#39;,
