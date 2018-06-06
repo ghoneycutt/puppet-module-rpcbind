@@ -79,39 +79,6 @@
   <div class="discussion">
     <p>Manages rpcbind package and service.</p>
 
-<p>Puppet strings documentation available at
-<a href="http://ghoneycutt.github.io/puppet-module-rpcbind/index.html">http://ghoneycutt.github.io/puppet-module-rpcbind/index.html</a></p>
-
-<h4>Requirements</h4>
-
-<p>This module requires
-<a href="https://github.com/puppetlabs/puppetlabs-stdlib">puppetlabs/stdlib</a>. The
-exact version can be found in the module&#39;s metadata in <code>metadata.json</code>.</p>
-
-<h4>Compatibility</h4>
-
-<p>This module is built for use with the latest versions of Puppet v4 and
-v5 with the ruby version packaged in the all-in-one installer. See
-<code>.travis.yml</code> for the supported matrix of versions.</p>
-
-<p>Supports the following platforms.</p>
-
-<ul>
-<li>Debian 8</li>
-<li>Debian 9</li>
-<li>EL 6</li>
-<li>EL 7</li>
-<li>Suse 11</li>
-<li>Suse 12</li>
-<li>Ubuntu 14.04 LTS</li>
-<li>Ubuntu 16.04 LTS</li>
-<li>Ubuntu 18.04 LTS</li>
-</ul>
-
-<h4>Development</h4>
-
-<p>See the <code>CONTRIBUTING.md</code> file.</p>
-
   </div>
 </div>
 <div class="tags">
@@ -224,44 +191,44 @@ v5 with the ruby version packaged in the all-in-one installer. See
         <pre class="lines">
 
 
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
 45
 46
 47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79</pre>
+48</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 45</span>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 14</span>
 
 class rpcbind (
   String $package_ensure = &#39;installed&#39;,
