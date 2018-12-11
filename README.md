@@ -43,9 +43,9 @@ Please consult the `REFERENCE.md` file for all parameters.
 
 ## Limitations
 
-This module is compatible with the latest releases of Puppet v4 and v5. Please
-see `metadata.json` for a list of supported platforms. See `.travis.yml` for a
-matrix of tested Ruby and Puppet versions.
+This module is compatible with the latest releases of Puppet v4, v5 and v6.
+Please see `metadata.json` for a list of supported platforms. See `.travis.yml`
+for a matrix of tested Ruby and Puppet versions.
 
 Supports the following platforms.
 
