@@ -6,7 +6,7 @@
 <title>
   Puppet Class: rpcbind
   
-    &mdash; Documentation by YARD 0.9.12
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -77,20 +77,24 @@
 <h2>Overview</h2>
 <div class="docstring">
   <div class="discussion">
-    <p>Manages rpcbind package and service.</p>
+    
+<p>Manages rpcbind package and service.</p>
 
   </div>
 </div>
+
+
 <div class="tags">
   
   <div class="examples">
     <p class="tag_title">Examples:</p>
     
       
-        <p class="example_title"><div class='inline'><p>Declaring the class</p>
+        <p class="example_title"><div class='inline'>
+<p>Declaring the class</p>
 </div></p>
       
-      <pre class="example code"><code>include ::rpcbind</code></pre>
+      <pre class="example code"><code><span class='id identifier rubyid_include'>include</span> <span class='id identifier rubyid_rpcbind'>rpcbind</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -101,14 +105,15 @@
         <span class='name'>package_ensure</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>String[1]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>&#39;installed&#39;</tt>)</em>
       
       
         &mdash;
-        <div class='inline'><p>Value used for the ensure attribute of the rpcbind package resource.</p>
+        <div class='inline'>
+<p>Value used for the ensure attribute of the rpcbind package resource.</p>
 </div>
       
     </li>
@@ -118,14 +123,15 @@
         <span class='name'>package_name</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>String[1]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>&#39;rpcbind&#39;</tt>)</em>
       
       
         &mdash;
-        <div class='inline'><p>Value used for the name attribute of the rpcbind package resource.</p>
+        <div class='inline'>
+<p>Value used for the name attribute of the rpcbind package resource.</p>
 </div>
       
     </li>
@@ -142,7 +148,8 @@
       
       
         &mdash;
-        <div class='inline'><p>Boolean used for the enable attribute of the rpcbind service resource.</p>
+        <div class='inline'>
+<p>Boolean used for the enable attribute of the rpcbind service resource.</p>
 </div>
       
     </li>
@@ -152,14 +159,15 @@
         <span class='name'>service_ensure</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>String[1]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>&#39;running&#39;</tt>)</em>
       
       
         &mdash;
-        <div class='inline'><p>Value used for the ensure attribute of the rpcbind service resource.</p>
+        <div class='inline'>
+<p>Value used for the ensure attribute of the rpcbind service resource.</p>
 </div>
       
     </li>
@@ -169,14 +177,15 @@
         <span class='name'>service_name</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>String[1]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>&#39;rpcbind&#39;</tt>)</em>
       
       
         &mdash;
-        <div class='inline'><p>Value used for the name attribute of the rpcbind service resource.</p>
+        <div class='inline'>
+<p>Value used for the name attribute of the rpcbind service resource.</p>
 </div>
       
     </li>
@@ -231,11 +240,11 @@
         <pre class="code"><span class="info file"># File 'manifests/init.pp', line 14</span>
 
 class rpcbind (
-  String $package_ensure = &#39;installed&#39;,
-  String $package_name   = &#39;rpcbind&#39;,
+  String[1] $package_ensure = &#39;installed&#39;,
+  String[1] $package_name = &#39;rpcbind&#39;,
   Boolean $service_enable = true,
-  String $service_ensure = &#39;running&#39;,
-  String $service_name   = &#39;rpcbind&#39;,
+  String[1] $service_ensure = &#39;running&#39;,
+  String[1] $service_name = &#39;rpcbind&#39;,
 ) {
 
   # Fail on unsupported platforms

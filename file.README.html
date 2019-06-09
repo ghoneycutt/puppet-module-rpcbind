@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.12
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -57,77 +57,93 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h1>rpcbind</h1>
+      <div id="content"><div id='filecontents'>
+<h1 id="label-rpcbind">rpcbind</h1>
 
-<h4>Table of Contents</h4>
+<h4 id="label-Table+of+Contents">Table of Contents</h4>
+<ol><li>
+<p><a href="#label-Module+description">Module Description - What the module does and
+why it is useful</a></p>
+</li><li>
+<p><a href="#label-Setup">Setup - The basics of getting started with rpcbind</a></p>
+<ul><li>
+<p><a href="#label-What+rpcbind+affects">What rpcbind affects</a></p>
+</li><li>
+<p><a href="#label-Beginning+with+rpcbind">Beginning with rpcbind</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-Usage">Usage - Configuration options and additional
+functionality</a></p>
+</li><li>
+<p><a href="#label-Limitations">Limitations - OS compatibility, etc.</a></p>
+</li><li>
+<p><a href="#label-Development">Development - Guide for contributing to the
+module</a></p>
+</li></ol>
 
-<ol>
-<li><a href="#label-Module+description">Module Description - What the module does and why it is useful</a></li>
-<li><a href="#label-Setup">Setup - The basics of getting started with rpcbind</a>
+<h2 id="label-Module+description">Module description</h2>
 
-<ul>
-<li><a href="#label-What+rpcbind+affects">What rpcbind affects</a></li>
-<li><a href="#label-Beginning+with+rpcbind">Beginning with rpcbind</a></li>
-</ul></li>
-<li><a href="#label-Usage">Usage - Configuration options and additional functionality</a></li>
-<li><a href="#label-Limitations">Limitations - OS compatibility, etc.</a></li>
-<li><a href="#label-Development">Development - Guide for contributing to the module</a></li>
-</ol>
+<p>The <code>rpcbind</code> module ensures that rpcbind is running. This is
+most often used in conjunction with NFS.</p>
 
-<h2>Module description</h2>
+<h2 id="label-Setup">Setup</h2>
 
-<p>The <code>rpcbind</code> module ensures that rpcbind is running. This is most often used
-in conjunction with NFS.</p>
+<h3 id="label-What+rpcbind+affects">What rpcbind affects</h3>
 
-<h2>Setup</h2>
+<p>By default this module ensures that the rpcbind package exists and the
+service is running and set to start at boot.</p>
 
-<h3>What rpcbind affects</h3>
+<h3 id="label-Beginning+with+rpcbind">Beginning with rpcbind</h3>
 
-<p>By default this module ensures that the rpcbind package exists and the service
-is running and set to start at boot.</p>
+<p>Declare the main <code>rpcbind</code> class.</p>
 
-<h3>Beginning with rpcbind</h3>
+<h2 id="label-Usage">Usage</h2>
 
-<p>Declare the main <code>::rpcbind</code> class.</p>
+<p>You can manage all interaction with rpcbind through the main
+<code>rpcbind</code> class. With the default options, the module ensures
+that rpcbind is running.</p>
 
-<h2>Usage</h2>
+<h3 id="label-Minimum+usage">Minimum usage</h3>
 
-<p>You can manage all interaction with rpcbind through the main <code>rpcbind</code> class.
-With the default options, the module ensures that rpcbind is running.</p>
-
-<h3>Minimum usage</h3>
-
-<pre class="code puppet"><code class="puppet">include &#39;::rpcbind&#39;
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpcbind</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
-<h3>Parameters to configure class.</h3>
+<h3 id="label-Parameters+to+configure+class.">Parameters to configure class.</h3>
 
 <p>Please consult the <code>REFERENCE.md</code> file for all parameters.</p>
 
-<h2>Limitations</h2>
+<h2 id="label-Limitations">Limitations</h2>
 
-<p>This module is compatible with the latest releases of Puppet v4 and v5. Please
-see <code>metadata.json</code> for a list of supported platforms. See <code>.travis.yml</code> for a
-matrix of tested Ruby and Puppet versions.</p>
+<p>This module is compatible with the latest release of Puppet verions 5 and
+6. Please see <code>metadata.json</code> for a list of supported platforms.
+See <code>.travis.yml</code> for a matrix of tested Ruby and Puppet
+versions.</p>
 
 <p>Supports the following platforms.</p>
+<ul><li>
+<p>Debian 8</p>
+</li><li>
+<p>Debian 9</p>
+</li><li>
+<p>EL 6</p>
+</li><li>
+<p>EL 7</p>
+</li><li>
+<p>Suse 11</p>
+</li><li>
+<p>Suse 12</p>
+</li><li>
+<p>Ubuntu 14.04 LTS</p>
+</li><li>
+<p>Ubuntu 16.04 LTS</p>
+</li><li>
+<p>Ubuntu 18.04 LTS</p>
+</li></ul>
 
-<ul>
-<li>Debian 8</li>
-<li>Debian 9</li>
-<li>EL 6</li>
-<li>EL 7</li>
-<li>Suse 11</li>
-<li>Suse 12</li>
-<li>Ubuntu 14.04 LTS</li>
-<li>Ubuntu 16.04 LTS</li>
-<li>Ubuntu 18.04 LTS</li>
-</ul>
+<h2 id="label-Development">Development</h2>
 
-<h2>Development</h2>
-
-<p>See <code>CONTRIBUTING.md</code> for information related to the development of this
-module.</p>
+<p>See <code>CONTRIBUTING.md</code> for information related to the development
+of this module.</p>
 </div></div>
 
       <div id="footer">
