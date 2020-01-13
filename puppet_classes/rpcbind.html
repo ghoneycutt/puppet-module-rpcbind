@@ -252,8 +252,8 @@ class rpcbind (
     fail(&#39;Unsupported osfamily detected. This module works with Debian, RedHat and Suse&#39;)
   }
 
-  if $facts[&#39;os&#39;][&#39;family&#39;] == &#39;RedHat&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;6&#39;,&#39;7&#39;]) {
-    fail(&quot;osfamily RedHat&#39;s os.release.major is &lt;${::facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 6 or 7&quot;)
+  if $facts[&#39;os&#39;][&#39;family&#39;] == &#39;RedHat&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;6&#39;,&#39;7&#39;,&#39;8&#39;]) {
+    fail(&quot;osfamily RedHat&#39;s os.release.major is &lt;${::facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 6, 7 or 8&quot;)
   } elsif $facts[&#39;os&#39;][&#39;family&#39;] == &#39;Suse&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;11&#39;,&#39;12&#39;,&#39;15&#39;]) {
     fail(&quot;osfamily Suse&#39;s os.release.major is &lt;${::facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 11, 12 or 15&quot;)
   } elsif $facts[&#39;os&#39;][&#39;name&#39;] == &#39;Debian&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;8&#39;,&#39;9&#39;]) {
