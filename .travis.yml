@@ -15,7 +15,14 @@ before_install:
 
 sudo: false
 
-script: 'SPEC_OPTS="--format documentation" bundle exec rake validate lint check:symlinks check:git_ignore check:dot_underscore check:test_file spec strings:generate reference'
+# TODO: The 'rake' gem cannot be in the Gemfile because it does not support
+# 'require: false'. This causes TravisCI to fail as it cannot find 'rake'. When
+# this is fixed, it will no longer be necessary to install rake in the script
+# line below.
+#
+# https://github.com/puppetlabs/pdk-templates/issues/211
+#
+script: 'bundle install rake && SPEC_OPTS="--format documentation" bundle exec rake validate lint check:symlinks check:git_ignore check:dot_underscore check:test_file spec strings:generate reference'
 
 matrix:
   fast_finish: true
