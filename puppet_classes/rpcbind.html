@@ -6,15 +6,15 @@
 <title>
   Puppet Class: rpcbind
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "puppet_classes::rpcbind";
   relpath = '../';
 </script>
@@ -193,6 +193,7 @@
 </ul>
 
 
+
 </div><div class="method_details_list">
   <table class="source_code">
     <tr>
@@ -258,8 +259,8 @@ class rpcbind (
     fail(&quot;osfamily Suse&#39;s os.release.major is &lt;${::facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 11, 12 or 15&quot;)
   } elsif $facts[&#39;os&#39;][&#39;name&#39;] == &#39;Debian&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;8&#39;,&#39;9&#39;]) {
     fail(&quot;Ubuntu&#39;s os.release.major is &lt;${facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 8 or 9&quot;)
-  } elsif $facts[&#39;os&#39;][&#39;name&#39;] == &#39;Ubuntu&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;14.04&#39;,&#39;16.04&#39;,&#39;18.04&#39;]) {
-    fail(&quot;Ubuntu&#39;s os.release.major is &lt;${facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 14.04, 16.04 or 18.04&quot;)
+  } elsif $facts[&#39;os&#39;][&#39;name&#39;] == &#39;Ubuntu&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;16.04&#39;,&#39;18.04&#39;,&#39;20.04&#39;]) {
+    fail(&quot;Ubuntu&#39;s os.release.major is &lt;${facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 16.04, 18.04 or 20.04&quot;)
   }
 
   package { &#39;rpcbind_package&#39;:
