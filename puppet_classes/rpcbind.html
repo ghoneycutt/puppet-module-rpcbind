@@ -6,7 +6,7 @@
 <title>
   Puppet Class: rpcbind
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -233,9 +233,7 @@
 43
 44
 45
-46
-47
-48</pre>
+46</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/init.pp', line 14</span>
@@ -247,20 +245,18 @@ class rpcbind (
   String[1] $service_ensure = &#39;running&#39;,
   String[1] $service_name = &#39;rpcbind&#39;,
 ) {
-
-  # Fail on unsupported platforms
   if !($facts[&#39;os&#39;][&#39;family&#39;] in [&#39;Debian&#39;,&#39;RedHat&#39;,&#39;Suse&#39;]) {
-    fail(&#39;Unsupported osfamily detected. This module works with Debian, RedHat and Suse&#39;)
+    notice(&#39;Unsupported osfamily detected. This module works with Debian, RedHat and Suse&#39;)
   }
 
-  if $facts[&#39;os&#39;][&#39;family&#39;] == &#39;RedHat&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;6&#39;,&#39;7&#39;,&#39;8&#39;]) {
-    fail(&quot;osfamily RedHat&#39;s os.release.major is &lt;${::facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 6, 7 or 8&quot;)
-  } elsif $facts[&#39;os&#39;][&#39;family&#39;] == &#39;Suse&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;11&#39;,&#39;12&#39;,&#39;15&#39;]) {
-    fail(&quot;osfamily Suse&#39;s os.release.major is &lt;${::facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 11, 12 or 15&quot;)
-  } elsif $facts[&#39;os&#39;][&#39;name&#39;] == &#39;Debian&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;8&#39;,&#39;9&#39;]) {
-    fail(&quot;Ubuntu&#39;s os.release.major is &lt;${facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 8 or 9&quot;)
-  } elsif $facts[&#39;os&#39;][&#39;name&#39;] == &#39;Ubuntu&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;16.04&#39;,&#39;18.04&#39;,&#39;20.04&#39;]) {
-    fail(&quot;Ubuntu&#39;s os.release.major is &lt;${facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and must be 16.04, 18.04 or 20.04&quot;)
+  if $facts[&#39;os&#39;][&#39;family&#39;] == &#39;RedHat&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;7&#39;,&#39;8&#39;]) {
+    notice(&quot;osfamily RedHat&#39;s os.release.major is &lt;${::facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and is not supported.&quot;)
+  } elsif $facts[&#39;os&#39;][&#39;family&#39;] == &#39;Suse&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;15&#39;]) {
+    notice(&quot;osfamily Suse&#39;s os.release.major is &lt;${::facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and is not supported.&quot;)
+  } elsif $facts[&#39;os&#39;][&#39;name&#39;] == &#39;Debian&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;9&#39;,&#39;10&#39;]) {
+    notice(&quot;Ubuntu&#39;s os.release.major is &lt;${facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and is not supported.&quot;)
+  } elsif $facts[&#39;os&#39;][&#39;name&#39;] == &#39;Ubuntu&#39; and !($facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;] in [&#39;18.04&#39;,&#39;20.04&#39;]) {
+    notice(&quot;Ubuntu&#39;s os.release.major is &lt;${facts[&#39;os&#39;][&#39;release&#39;][&#39;major&#39;]}&gt; and is not supported.&quot;)
   }
 
   package { &#39;rpcbind_package&#39;:
