@@ -22,7 +22,7 @@ class rpcbind (
     notice('Unsupported osfamily detected. This module works with Debian, RedHat and Suse')
   }
 
-  if $facts['os']['family'] == 'RedHat' and !($facts['os']['release']['major'] in ['7','8']) {
+  if $facts['os']['family'] == 'RedHat' and !($facts['os']['release']['major'] in ['7','8','9']) {
     notice("osfamily RedHat's os.release.major is <${::facts['os']['release']['major']}> and is not supported.")
   } elsif $facts['os']['family'] == 'Suse' and !($facts['os']['release']['major'] in ['15']) {
     notice("osfamily Suse's os.release.major is <${::facts['os']['release']['major']}> and is not supported.")

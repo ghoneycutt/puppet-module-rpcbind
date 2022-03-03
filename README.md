@@ -52,6 +52,7 @@ Supports the following platforms.
 * Debian 10
 * EL 7
 * EL 8
+* EL 9
 * Suse 15
 * Ubuntu 18.04 LTS
 * Ubuntu 20.04 LTS

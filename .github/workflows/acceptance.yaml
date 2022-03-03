@@ -15,6 +15,7 @@ jobs:
         set:
         - centos-7
         - centos-8
+        - centos-9
         - debian-9
         - debian-10
         - ubuntu-1804
