@@ -28,7 +28,7 @@ class rpcbind (
     notice("osfamily Suse's os.release.major is <${::facts['os']['release']['major']}> and is not supported.")
   } elsif $facts['os']['name'] == 'Debian' and !($facts['os']['release']['major'] in ['9','10']) {
     notice("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and is not supported.")
-  } elsif $facts['os']['name'] == 'Ubuntu' and !($facts['os']['release']['major'] in ['18.04','20.04']) {
+  } elsif $facts['os']['name'] == 'Ubuntu' and !($facts['os']['release']['major'] in ['18.04','20.04','22.04']) {
     notice("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and is not supported.")
   }
 
