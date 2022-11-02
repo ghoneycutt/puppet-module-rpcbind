@@ -19,6 +19,7 @@ jobs:
         - debian-10
         - ubuntu-1804
         - ubuntu-2004
+        - ubuntu-2204
         puppet:
         - puppet6
         - puppet7
